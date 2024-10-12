@@ -14,6 +14,7 @@ class HrTechWithIntelligenceApp extends StatelessWidget {
     return CupertinoApp.router(
       restorationScopeId: 'app',
       routerConfig: _appRouter.config(),
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

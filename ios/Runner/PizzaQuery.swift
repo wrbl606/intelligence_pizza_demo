@@ -1,19 +1,19 @@
 import AppIntents
 import intelligence
 
-struct WorkoutQuery: EntityQuery {
-  func entities(for identifiers: [String]) async throws -> [WorkoutEntity] {
+struct PizzaQuery: EntityQuery {
+  func entities(for identifiers: [String]) async throws -> [PizzaEntity] {
     return IntelligencePlugin.storage.get(for: identifiers).map() { item in
-      return WorkoutEntity(
+      return PizzaEntity(
         id: item.id,
         representation: item.representation
       )
     }
   }
   
-  func suggestedEntities() async throws -> [WorkoutEntity] {
+  func suggestedEntities() async throws -> [PizzaEntity] {
     return IntelligencePlugin.storage.get().map() { item in
-      return WorkoutEntity(
+      return PizzaEntity(
         id: item.id,
         representation: item.representation
       )
@@ -21,10 +21,10 @@ struct WorkoutQuery: EntityQuery {
   }
 }
 
-extension WorkoutQuery: EnumerableEntityQuery {
-  func allEntities() async throws -> [WorkoutEntity] {
+extension PizzaQuery: EnumerableEntityQuery {
+  func allEntities() async throws -> [PizzaEntity] {
     return IntelligencePlugin.storage.get().map() { item in
-      return WorkoutEntity(
+      return PizzaEntity(
         id: item.id,
         representation: item.representation
       )

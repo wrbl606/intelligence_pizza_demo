@@ -1,12 +1,12 @@
 import AppIntents
 import intelligence
 
-struct RewardColleagueIntent: AppIntent {
-  static var title: LocalizedStringResource = "Start Workout"
+struct OrderPizzaIntent: AppIntent {
+  static var title: LocalizedStringResource = "Order Pizza"
   static var openAppWhenRun: Bool = true
     
-  @Parameter(title: "Workout")
-  var target: WorkoutEntity
+  @Parameter(title: "Pizza")
+  var target: PizzaEntity
   
   @MainActor
   func perform() async throws -> some IntentResult {
@@ -15,7 +15,7 @@ struct RewardColleagueIntent: AppIntent {
   }
   
   static var parameterSummary: some ParameterSummary {
-    Summary("Begin \(\.$target)")
+    Summary("Order \(\.$target)")
   }
 }
 
@@ -23,9 +23,9 @@ struct RewardColleagueIntent: AppIntent {
 struct AppShortcuts: AppShortcutsProvider {
   static var appShortcuts: [AppShortcut] {
     AppShortcut(
-      intent: RewardColleagueIntent(),
+      intent: OrderPizzaIntent(),
       phrases: [
-        "Begin \(\.$target) in \(.applicationName)"
+        "Order \(\.$target) in \(.applicationName)"
       ]
     )
   }

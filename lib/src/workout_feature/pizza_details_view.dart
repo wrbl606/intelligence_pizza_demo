@@ -93,8 +93,17 @@ class _PizzaDetailsViewState extends State<PizzaDetailsView> {
                           ),
                         ),
                       ),
+                      PositionedDirectional(
+                        child: CupertinoButton(
+                          onPressed: context.maybePop,
+                          child: const Text(
+                            'Close',
+                            style: TextStyle(color: CupertinoColors.white),
+                          ),
+                        ),
+                      ),
                       Positioned(
-                        top: 10,
+                        top: 13,
                         left: 0,
                         right: 0,
                         child: Text.rich(
@@ -124,15 +133,39 @@ class _PizzaDetailsViewState extends State<PizzaDetailsView> {
                       )
                     ],
                   ),
-                  Text(name),
-                  Text('$price€'),
-                  CupertinoButton.filled(
-                    child: const Text('Order now'),
-                    onPressed: () {},
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        name,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text('$price€'),
+                    ],
                   ),
-                  CupertinoButton(
-                    child: const Text('Order for later'),
-                    onPressed: () {},
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CupertinoButton(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(1000)),
+                        onPressed: () {},
+                        color: Colors.red.shade800,
+                        child: const Text('Order now'),
+                      ),
+                      CupertinoButton(
+                        child: Text(
+                          'Order for later',
+                          style: TextStyle(color: Colors.red.shade800),
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
                   ),
                 ],
               ),

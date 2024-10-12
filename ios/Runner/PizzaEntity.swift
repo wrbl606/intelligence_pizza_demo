@@ -1,8 +1,8 @@
 import CoreSpotlight
 import AppIntents
 
-struct WorkoutEntity: AppEntity {
-  static var defaultQuery: WorkoutQuery = WorkoutQuery()
+struct PizzaEntity: AppEntity {
+  static var defaultQuery: PizzaQuery = PizzaQuery()
   static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Workout")
   
   var displayRepresentation: DisplayRepresentation {
@@ -13,7 +13,7 @@ struct WorkoutEntity: AppEntity {
   let representation: String
 }
 
-extension WorkoutEntity: IndexedEntity {
+extension PizzaEntity: IndexedEntity {
   var attributeSet: CSSearchableItemAttributeSet {
     let attributes = CSSearchableItemAttributeSet()
     attributes.displayName = self.representation

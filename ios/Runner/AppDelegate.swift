@@ -14,7 +14,7 @@ import intelligence
     }
     if #available(iOS 18.0, *) {
         IntelligencePlugin.spotlightCore.attachEntityMapper() { item in
-          return WorkoutEntity(
+          return PizzaEntity(
             id: item.id,
             representation: item.representation
           )
